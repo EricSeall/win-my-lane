@@ -4,3 +4,24 @@
 
 #root {
 }
+
+body,
+html {
+	height: 100%;
+	color: black;
+	cursor: url(https://brand.riotgames.com//images/league-of-legends/cursor.png),
+		auto;
+}
+
+.bg {
+	/* The image used */
+	background-image: url("https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/ffe8f50201af51a0956875d2aeeb9e662eb0b228-3840x2160.png?auto=format&fit=fill&q=80&w=2536");
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	z-index: -1;
+	filter: blur(4px);
+}
