@@ -63,7 +63,7 @@ function App() {
 					<input
 						className="text-black block mx-auto w-64"
 						onChange={(e) => {
-							setQuery(e.target.value);
+							setQuery(e.currentTarget.value);
 						}}
 						onKeyDown={(e) => {
 							if (e.key === "Enter") {
@@ -75,7 +75,7 @@ function App() {
 									})[0].dataName
 								);
 								setQuery("");
-								e.target.value = "";
+								e.currentTarget.value = "";
 							}
 						}}
 						placeholder="Enter Champion Name:"
