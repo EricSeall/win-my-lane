@@ -55,64 +55,67 @@ function App() {
 	return (
 		<>
 			<div className="bg h-screen absolute top-0 left-0 w-screen" />
-			<div className="main-content flex h-screen justify-center items-center">
+			<div className="main-content flex h-screen justify-center items-start">
 				<div className="block mx-auto max-w-96">
-					<h1 className="block text-center m-auto font-bold text-6xl mb-16 text-GOLD-1 bg-gradient-to-b from-BLUE-7 to-BLUE-6 border-2 rounded-lg border-GOLD-4 p-4">
+					<h1 className="block text-center mx-auto font-bold text-6xl mb-16 mt-4 text-GOLD-1 bg-gradient-to-b from-BLUE-7 to-BLUE-6 border-2 rounded-lg border-GOLD-4 p-4">
 						Win My Lane
 					</h1>
-					<input
-						className="text-black block mx-auto w-64"
-						onChange={(e) => {
-							setQuery(e.currentTarget.value);
-						}}
-						onKeyDown={(e) => {
-							if (e.key === "Enter") {
-								queryData(
-									championNames.filter((name) => {
-										return query.toLowerCase() === ""
-											? false
-											: name.commonName.toLowerCase().startsWith(query.toLowerCase());
-									})[0].dataName
-								);
-								setQuery("");
-								e.currentTarget.value = "";
-							}
-						}}
-						placeholder="Enter Champion Name:"
-					/>
-					<div className="autosuggest mx-auto w-64">
-						{championNames
-							.filter((name) => {
-								return query.toLowerCase() === ""
-									? false
-									: name.commonName.toLowerCase().startsWith(query.toLowerCase());
-							})
-							.map((name, index) => (
-								//TODO: make into components
-								<div
-									className="champ-tile hover:scale-110 transition-all bg-gradient-to-b from-BLUE-7 to-BLUE-6"
-									key={index}
-									onClick={() => {
-										queryData(name.dataName);
-										setQuery("");
-									}}
-								>
-									<img
-										className="inline border border-GOLD-4"
-										src={`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/champion/${name.dataName}.png`}
-										alt={`${name.commonName} icon`}
-										width="30"
-										height="30"
-									/>
-									<span className="pl-2 text-GOLD-1">
-										{name.commonName}
-										<br />
-									</span>
-								</div>
-							))}
+					<div className="relative px-16">
+						<input
+							className="block mx-auto w-64 bg-gradient-to-b from-BLUE-7 to-BLUE-6 border-GOLD-4 text-GOLD-1 pl-2 border-2 rounded-lg"
+							onChange={(e) => {
+								setQuery(e.currentTarget.value);
+							}}
+							onKeyDown={(e) => {
+								if (e.key === "Enter") {
+									queryData(
+										championNames.filter((name) => {
+											return query.toLowerCase() === ""
+												? false
+												: name.commonName.toLowerCase().startsWith(query.toLowerCase());
+										})[0].dataName
+									);
+									setQuery("");
+									e.currentTarget.value = "";
+								}
+							}}
+							placeholder="Enter Champion Name:"
+						/>
+						<div className="autosuggest mx-auto w-64 absolute top-full">
+							{championNames
+								.filter((name) => {
+									return query.toLowerCase() === ""
+										? false
+										: name.commonName.toLowerCase().startsWith(query.toLowerCase());
+								})
+								.map((name, index) => (
+									//TODO: make into components
+									<div
+										className="champ-tile hover:scale-110 transition-all bg-gradient-to-b from-BLUE-7 to-BLUE-6"
+										key={index}
+										onClick={() => {
+											queryData(name.dataName);
+											setQuery("");
+										}}
+									>
+										<img
+											className="inline border border-GOLD-4"
+											src={`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/champion/${name.dataName}.png`}
+											alt={`${name.commonName} icon`}
+											width="30"
+											height="30"
+										/>
+										<span className="pl-2 text-GOLD-1">
+											{name.commonName}
+											<br />
+										</span>
+									</div>
+								))}
+						</div>
 					</div>
-					<div className="text-GOLD-1 mt-16 bg-gradient-to-b from-BLUE-7 to-BLUE-6 border-2 rounded-lg border-GOLD-4 p-4">
-						{tips && (
+
+					{tips && (
+						<div className="text-GOLD-1 mt-16 bg-gradient-to-b from-BLUE-7 to-BLUE-6 border-2 rounded-lg border-GOLD-4 p-4">
 							<img
 								className="block border border-GOLD-4 text-center mx-auto animate-in mb-4"
 								src={`https://ddragon.leagueoflegends.com/cdn/${latestVersion}/img/champion/${activeChamp}.png`}
@@ -121,19 +124,18 @@ function App() {
 								width="60"
 								height="60"
 							/>
-						)}
-						{tips &&
-							tips.map((tip) => (
+							{tips.map((tip) => (
 								<p key={tip} className="text-xl text-center animate-in mb-4">
 									"{tip}"
 								</p>
 							))}
-						{tips && tips.length === 0 && (
-							<p key={activeChamp} className="text-center animate-in text-xl mb-4">
-								I've got nothin'. Just get good I guess.
-							</p>
-						)}
-					</div>
+							{tips.length === 0 && (
+								<p key={activeChamp} className="text-center animate-in text-xl mb-4">
+									I've got nothin'. Just get good I guess.
+								</p>
+							)}
+						</div>
+					)}
 				</div>
 			</div>
 		</>
