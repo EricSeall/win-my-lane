@@ -36,7 +36,6 @@ function App() {
 				})
 			);
 		}
-		console.log(data.data);
 	}
 
 	async function queryData(champ: string) {
@@ -48,7 +47,6 @@ function App() {
 		if (res.ok) {
 			setTips(data.data[champ].enemytips);
 			setActiveChamp(champ);
-			console.log(data.data[champ].enemytips);
 		}
 	}
 
@@ -56,13 +54,13 @@ function App() {
 		<>
 			<div className="bg h-screen absolute top-0 left-0 w-screen" />
 			<div className="main-content flex h-screen justify-center items-start">
-				<div className="block mx-auto max-w-96">
-					<h1 className="block text-center mx-auto font-bold text-6xl mb-16 mt-4 text-GOLD-1 bg-gradient-to-b from-BLUE-7 to-BLUE-6 border-2 rounded-lg border-GOLD-4 p-4">
+				<div className="block mx-auto w-80 sm:w-[160rem] max-w-lg">
+					<h1 className="block text-center mx-auto font-bold text-4xl sm:text-6xl mb-16 mt-8 text-GOLD-1 bg-gradient-to-b from-BLUE-7 to-BLUE-6 border-2 rounded-lg border-GOLD-4 p-4">
 						Win My Lane
 					</h1>
-					<div className="relative px-16">
+					<div className="relative">
 						<input
-							className="block mx-auto w-64 bg-gradient-to-b from-BLUE-7 to-BLUE-6 border-GOLD-4 text-GOLD-1 pl-2 border-2 rounded-lg"
+							className="block mx-auto w-80 sm:w-[32rem] max-w-lg bg-gradient-to-b from-BLUE-7 to-BLUE-6 border-GOLD-4 text-GOLD-1 pl-2 border-2 rounded-lg"
 							onChange={(e) => {
 								setQuery(e.currentTarget.value);
 							}}
@@ -81,7 +79,7 @@ function App() {
 							}}
 							placeholder="Enter Champion Name:"
 						/>
-						<div className="autosuggest mx-auto w-64 absolute top-full">
+						<div className="autosuggest mx-auto w-80 sm:w-[160rem] max-w-lg absolute top-full">
 							{championNames
 								.filter((name) => {
 									return query.toLowerCase() === ""
@@ -91,11 +89,18 @@ function App() {
 								.map((name, index) => (
 									//TODO: make into components
 									<div
-										className="champ-tile hover:scale-110 transition-all bg-gradient-to-b from-BLUE-7 to-BLUE-6"
+										className="champ-tile hover:scale-110 focus:scale-110 transition-all bg-gradient-to-b from-BLUE-7 to-BLUE-6"
 										key={index}
+										tabIndex={0}
 										onClick={() => {
 											queryData(name.dataName);
 											setQuery("");
+										}}
+										onKeyDown={(e) => {
+											if (e.key === "Enter") {
+												queryData(name.dataName);
+												setQuery("");
+											}
 										}}
 									>
 										<img
