@@ -1,7 +1,5 @@
 # Win My Lane - A tool for countering your lane opponent in League of Legends
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/c679bbe6-b9a2-4aa7-9543-2551f3cc5686"  width="200"/>
-</p>
+<img align="left" src="https://github.com/user-attachments/assets/c679bbe6-b9a2-4aa7-9543-2551f3cc5686"  width="200"/>
 
 
 
