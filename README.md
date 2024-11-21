@@ -1,5 +1,6 @@
 # Win My Lane - A tool for countering your lane opponent in League of Legends
 
+The application is live [here](https://ericseall.github.io/win-my-lane/) for anyone to use!
 
 
 
