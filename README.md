@@ -17,6 +17,10 @@ The application is centered around Riot Games' [Data Dragon](https://developer.r
 
 The user begins to input a champion name and the application suggests champions that begin with those characters. Clicking on a suggestion will query that champion. Pressing the <kbd>Enter</kbd> key will query the champion at the top of the suggestion list. It is also possible to <kbd>Tab</kbd> through the list of suggestions and hit <kbd>Enter</kbd> to query for accessibility purposes.
 
+If there is no weakness data for a given champion then the application lets you know the next best thing you can do - **Get Good.**
+
+A simple and invaluable tool for you *(or your teammates)* to get a slight edge over your opponent going into the game!
+
 <br>
 <br>
 <br>
