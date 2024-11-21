@@ -25,10 +25,6 @@ A simple and invaluable tool for you *(or your teammates)* to get a slight edge 
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
 
 ## Development
 
