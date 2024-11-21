@@ -11,7 +11,7 @@ Ever lost lane to a fed Yasuo because you didn't know how his passive shield wor
 
 Ever lost lane to a fed Kled because you didn't know about his remounting mechanic?
 
-**Lose no more!**
+***Lose no more!***
 
 The application is centered around Riot Games' [Data Dragon](https://developer.riotgames.com/docs/lol#data-dragon) API, which happens to contain data for the weaknesses of most champions. 
 
