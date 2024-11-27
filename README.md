@@ -27,9 +27,9 @@ A simple and invaluable tool for you *(or your teammates)* to get a slight edge 
 
 ## Tech Stack
 
-- React.js
+- React
 - Vite
-- Typescript
+- TypeScript
 - Tailwind CSS
 - HTML
 
